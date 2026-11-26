@@ -1,9 +1,9 @@
 # orders-service (upgrade POC)
 
-A small Spring Boot 3.x service on Java 17. It is the baseline for the upgrade check:
+A small Spring Boot service. It is the baseline for the upgrade check:
 
-- `master`: Spring Boot 3.2.5 on Java 17 (this version)
-- `change_branch`: the upgraded version (for example Spring Boot 3.3.x), made by changing the parent version in `pom.xml`
+- `main` (the baseline, `master` in the check): Spring Boot 3.2.5 on Java 17
+- `change_branch`: Spring Boot 4.2.0 on Java 25, with JaCoCo 0.8.15 and the Spring Boot 4 test changes (Jackson 3 `ObjectMapper`, `spring-boot-starter-webmvc`, `spring-boot-starter-webmvc-test`)
 
 ## Endpoints
 
@@ -29,4 +29,4 @@ The build fails when line coverage is below 60%. The JaCoCo report is in `target
 
 - `OrderService.cancel` has no test on purpose. The impact check should report it as untraced code.
 - The repository is in memory. Tests share it, so they assert on the ids they create.
-- Java 17 is required. Set `JAVA_HOME` to a JDK 17 folder before running Maven, or use the JDK path in `config\upgrade.json`.
+- The change_branch needs JDK 25 (Spring Boot 4.2 supports Java 17 to 26). Set `JAVA_HOME` to a JDK 25 folder before running Maven, or use the JDK path in `config\upgrade.json`. The main branch needs JDK 17.

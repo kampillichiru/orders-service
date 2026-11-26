@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <!-- Upgrade POC baseline: Spring Boot 3.x on Java 17. The change_branch upgrades the parent version. -->
+  <!-- Candidate branch: Spring Boot 4.2.0 on Java 25 with latest JaCoCo. Baseline (master/main) is Spring Boot 3.2.5 on Java 17. -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.2.5</version>
+    <version>4.2.0</version>
     <relativePath/>
   </parent>
 
@@ -16,18 +16,18 @@
   <artifactId>orders-service</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>orders-service</name>
-  <description>Upgrade POC: Spring Boot 3.x on Java 17</description>
+  <description>Upgrade POC: Spring Boot 4.2.0 on Java 25</description>
 
   <properties>
-    <java.version>17</java.version>
-    <jacoco.version>0.8.12</jacoco.version>
+    <java.version>25</java.version>
+    <jacoco.version>0.8.15</jacoco.version>
     <jacoco.line.minimum>0.60</jacoco.line.minimum>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter-webmvc</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -41,6 +41,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
